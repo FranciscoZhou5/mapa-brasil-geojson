@@ -6,9 +6,14 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 import { LatLngExpression } from "leaflet";
-import { GeoJSON, TileLayer } from "react-leaflet";
 
 const MapContainer = dynamic(() => import("react-leaflet").then((m) => m.MapContainer), {
+  ssr: false,
+});
+const TileLayer = dynamic(() => import("react-leaflet").then((m) => m.TileLayer), {
+  ssr: false,
+});
+const GeoJSON = dynamic(() => import("react-leaflet").then((m) => m.GeoJSON), {
   ssr: false,
 });
 
