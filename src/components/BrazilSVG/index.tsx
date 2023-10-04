@@ -1,6 +1,9 @@
+import { useStateStore } from "@/store/StateStore";
 import { toast } from "sonner";
 
 export default function BrazilSVG() {
+  const clickState = useStateStore((state) => state.clickState);
+
   const states = [
     { acronym: "AC", name: "Acre" },
     { acronym: "AL", name: "Alagoas" },
@@ -36,19 +39,17 @@ export default function BrazilSVG() {
 
     const state = states.find(({ acronym }) => acronym.toLowerCase() === clickedState);
 
-    toast(`Você clicou no estado de ${state?.name}`);
+    clickState(state?.name as string);
   }
 
   return (
     <svg
-      className="map w-[460px] h-[460px]"
+      className="map w-[368px] h-[368px] md:w-[414px] md:h-[414px] lg:w-[460px] lg:h-[460px]"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       role="img"
-      // width={460 * 1.5}
-      // height={460 * 1.5}
     >
-      <g>
+      <g className="scale-[80%] md:scale-90 lg:scale-100">
         <a className="state" data-state="ba" onClick={onClickState}>
           <desc className="description">Bahia</desc>
           <path
