@@ -41,14 +41,14 @@ export default function BrazilSVG() {
 
   return (
     <svg
-      className="map"
+      className="map w-[460px] h-[460px]"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       role="img"
-      width={460 * 1.5}
-      height={460 * 1.5}
+      // width={460 * 1.5}
+      // height={460 * 1.5}
     >
-      <g className="scale-150">
+      <g>
         <a className="state" data-state="ba" onClick={onClickState}>
           <desc className="description">Bahia</desc>
           <path
